@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +27,42 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    
+}
+
+
+/* WebKit-based browsers (Chrome, Safari, Edge, Opera) */
+/* Use vendor prefix for widest compatibility */
+::-webkit-scrollbar {
+  width: 2px; /* Adjust as needed */
+}
+
+/* Thumb (the draggable scrolling handle) */
+::-webkit-scrollbar-thumb {
+  background-color: #4a90e2; /* Change as needed */
+  border-radius: 6px; /* Adjust as needed */
+  border: 2px solid transparent; /* Optional border for visual separation */
+}
+
+/* Track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Change as needed */
+  border-radius: 6px; /* Adjust as needed */
+}
+
+/* Mozilla-based browsers (Firefox) */
+/* Use modern standard syntax for future-proofing */
+scrollbar {
+  width: 1px; /* Adjust as needed */
+}
+
+scrollbar-thumb {
+  background-color: #f0f0f0; /* Change as needed */
+  border-radius: 6px; /* Adjust as needed */
+  border: 2px solid transparent; /* Optional border */
+}
+
+scrollbar-track {
+  background-color: #f0f0f0; /* Change as needed */
+  border-radius: 6px; /* Adjust as needed */
 }
