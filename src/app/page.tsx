@@ -98,7 +98,7 @@ export default function Home() {
             className="hover:underline cursor-pointer"
             onClick={() => setStep("1")}
           >
-            TOPIC
+            SKILL
           </p>
           <p
             className="hover:underline cursor-pointer"

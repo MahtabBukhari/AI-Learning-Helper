@@ -143,20 +143,25 @@ const AttemptQuiz: React.FC<AttemptQuizProps> = ({ questions }) => {
     <div className="max-w-md mx-auto mt-24 relative">
       {isSummaryVisible ? (
         <div className="bg-white p-8 rounded-lg shadow-md relative">
-          <h2 className="text-2xl font-bold mb-4">Quiz Summary</h2>
+          <h2 className="text-2xl font-bold mb-4">Quiz Result</h2>
           {questions.map((question, index) => (
             <div
               key={index}
-              className={`mb-4 ${
+             
+            >
+              <p ><span><b>{question.id}. </b></span><b>{question.question}</b></p>
+              <p><b  className={`mb-4 ${
                 selectedOptions[index] === question.correctAnswer
                   ? "text-green-600"
                   : "text-red-600"
-              }`}
-            >
-              <p>{question.question}</p>
-              <p>Your Answer: {selectedOptions[index]}</p>
-              <p>Correct Answer: {question.correctAnswer}</p>
-              <p>Time Spent: {formatTime(timeSpentOnQuestions[index])}</p>
+              }`}>Your Answer: </b> {selectedOptions[index]}</p>
+              <p><b  className={`mb-4 ${
+                selectedOptions[index] === question.correctAnswer
+                  ? "text-green-600"
+                  : "text-red-600"
+              }`}>Correct Answer: </b> {question.correctAnswer}</p>
+              <p className="mb-3"><b>Time Spent: </b> {formatTime(timeSpentOnQuestions[index])}</p>
+              <hr/>
             </div>
           ))}
           <div className="flex w-full flex-col">
@@ -167,18 +172,29 @@ const AttemptQuiz: React.FC<AttemptQuizProps> = ({ questions }) => {
               className="border border-blue-300  text-blue-500 hover:border-blue-500 hover:text-white hover:bg-blue-500 px-2 py-2 rounded-md mt-5"
               onClick={handleGoToTopic}
             >
-              Go to Topic Page
+              Go to Skill Page
             </button>
           </div>
         </div>
       ) : (
         <div
           className="bg-white p-8 rounded-lg shadow-md relative"
-          style={{ width: "600px", height: "400px" }}
+          style={{ width: "650px", height: "400px" }}
         >
-          <h2 className="text-2xl font-bold mb-4">
-            {!submitted && questions[currentQuestion].question}
+          <div className="flex">
+          <h2 className="text-2xl font-bold mb-4 mr-3">
+            {!submitted && ( 
+              <><span>{questions[currentQuestion].id}. </span>
+              {questions[currentQuestion].question}
+              </>
+              )
+              }
           </h2>
+
+          <h1 className="text-lg font-bold mt-1">
+              {questions[currentQuestion].id}/{questions.length}
+            </h1>
+          </div>
 
           {!submitted && (
             <div className="space-y-4">
@@ -238,7 +254,7 @@ const AttemptQuiz: React.FC<AttemptQuizProps> = ({ questions }) => {
           </div>
           {!submitted && (
             <div className="absolute bottom-4 left-4 text-gray-600">
-              Timer: {formatTime(timer)}
+              <b>Timer:</b> {formatTime(timer)}
             </div>
           )}
         </div>
